@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Countries</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="countries.css">
+
+  <script src="countries.js" type="text/javascript"></script>
+  <script>
+
+    function load() {
+      document.getElementById('addFieldButton').addEventListener('click', function () {
+        addField('status');
+      });
+      document.getElementById('translation').addEventListener('change', function () {
+        translate(this.value);
+      });
+      addHeader();
+      for (let field of ['area', 'latlng']) {
+        addField(field);
+      }
+    }
+
+    function addField(field) {
+      let table = document.getElementById('table');
+      let tr = document.createElement('tr');
+      let th = document.createElement('th');
+      th.innerText = field;
+      tr.appendChild(th);
+
+      for (let country of COUNTRIES) {
+        let td = document.createElement('td');
+        td.innerText = country[field];
+        tr.appendChild(td);
+        table.appendChild(tr);
+      }
+    }
+
+    function addHeader(language) {
+      let table = document.getElementById('table');
+      let tr = document.createElement('tr');
+      tr.id = "header";
+      let th = document.createElement('th');
+      th.innerText = "Country";
+      tr.appendChild(th);
+
+      for (let country of COUNTRIES) {
+        let td = document.createElement('td');
+        td.innerText = country.name.official;
+        tr.appendChild(td);
+        table.appendChild(tr);
+      }
+    }
+
+    function translate(language) {
+      let tr = document.getElementById('header');
+      let tds = tr.getElementsByTagName("td");
+      console.log(tds);
+
+      for (let i=0; i< COUNTRIES.length; i++) {
+        if (language == "official_default") {
+          tds[i].innerText = COUNTRIES[i].name.official;
+        } else {
+          tds[i].innerText = COUNTRIES[i].translations[language.toLowerCase()].official;
+        }
+      }
+    }
+  </script>
+
+</head>
+
+<body id="body" onload="load();">
+  <div class="filter-wrapper">
+    <button id="addFieldButton">Add field</button>
+    <select name="translation" id="translation">
+      <option disabled selected>Translate Name</option>
+      <option value="JPN">Japan</option>
+      <option value="RUS">Russian</option>
+      <option value="SPA">Spanish</option>
+      <option value="official_default">Official name</option>
+    </select>
+  </div>
+  <div class="table-responsive">
+    <table id="table"></table>
+  </div>
+</body>
+
+</html>

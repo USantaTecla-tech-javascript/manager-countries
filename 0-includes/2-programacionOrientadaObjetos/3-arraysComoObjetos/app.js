@@ -5,6 +5,7 @@ let name = `Spain`;
 console.writeln(`¿Está el país de nombre ${name}?: ${getCountries().map((countrie) => countrie.name).indexOf(name)}`);
 name = `Atlantida`;
 console.writeln(`¿Está el país de nombre ${name}?: ${getCountries().map((countrie) => countrie.name).indexOf(name)}`);
+
 let capital = `Madrid`;
 console.writeln(`¿Está el país de capital ${capital}?: ${getCountries().map((countrie) => countrie.capital).indexOf(name)}`);
 capital = `Utopía`;

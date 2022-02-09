@@ -5,6 +5,7 @@ let name = `Spain`;
 console.writeln(`¿Está el país de nombre ${name}?: ${includes(getCountries(), searchBySpain)}`);
 name = `Atlantida`;
 console.writeln(`¿Está el país de nombre ${name}?: ${includes(getCountries(), searchByAtlantida)}`);
+
 let capital = `Madrid`;
 console.writeln(`¿Está el país de capital ${capital}?: ${includes(getCountries(), searchByMadrid)}`);
 capital = `Utopía`;

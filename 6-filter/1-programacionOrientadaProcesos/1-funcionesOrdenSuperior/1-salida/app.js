@@ -2,36 +2,35 @@ const { Console } = require("./console");
 
 const console = new Console();
 let region = `Asia`;
-let population = 1000000;
-let country = find(getCountries(), generateSearchByRegionPopulation(region, population));
-let name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
+let population = 10000000;
+writelnNames(`¿Cuál es el nombre de los paises de ${region} con población superior o igual a ${population}?:`,
+  filter(getCountries(), generateSearchByRegionPopulation(region, population)));
+
 
 region = `Americas`;
-population = 1000;
-country = find(getCountries(), generateSearchByRegionPopulation(region, population));
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
+population = 1000000;
+writelnNames(`¿Cuál es el nombre de los paises de ${region} con población superior o igual a ${population}?:`,
+  filter(getCountries(), generateSearchByRegionPopulation(region, population)));
 
 let subregion = `Northern Europe`;
 let area = 100000;
-country = find(getCountries(), generateSearchBySubregionArea(subregion, area));
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?: ${name}`);
+writelnNames(`¿Cuál es el nombre de los paises de ${subregion} con población superior o igual a ${area}?:`,
+  filter(getCountries(), generateSearchBySubregionArea(subregion, area)));
+
 
 subregion = `Polynesia`;
 area = 1000000;
-country = find(getCountries(), generateSearchBySubregionArea(subregion, area));
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?: ${name}`);
+writelnNames(`¿Cuál es el nombre de los paises de ${subregion} con población superior o igual a ${area}?:`,
+  filter(getCountries(), generateSearchBySubregionArea(subregion, area)));
 
-function find(countries, search) {
-  for (let i=0; i<countries.length; i++) {
+function filter(countries, search) {
+  let result = [];
+  for (let i = 0; i < countries.length; i++) {
     if (search(countries[i])) {
-      return countries[i];
+      result.push(countries[i]);
     }
   }
-  return null;
+  return result;
 }
 
 function generateSearchByRegionPopulation(region, population){
@@ -48,6 +47,15 @@ function generateSearchBySubregionArea(subregion, area){
   };
 
   return searchBySubregionArea;
+}
+
+function writelnNames(title, countries) {
+  let result = ``;
+  for (let i = 0; i < countries.length; i++) {
+    result += `${result === `` ? `` : `, `}${countries[i].name}`;
+  }
+  console.writeln(`${title}
+  ${result !== `` ? result : `No existen`}`);
 }
 
 function getCountries(){

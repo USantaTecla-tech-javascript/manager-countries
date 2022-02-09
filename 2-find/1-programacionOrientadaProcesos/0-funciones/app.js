@@ -3,27 +3,23 @@ const { Console } = require("./console");
 const console = new Console();
 let region = `Asia`;
 let population = 1000000;
-let country = findByRegionPopulation(getCountries(), region, population);
-let name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
+writelnName(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?:`,
+  findByRegionPopulation(getCountries(), region, population));
 
 region = `Americas`;
 population = 1000;
-country = findByRegionPopulation(getCountries(), region, population);
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
+writelnName(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?:`,
+  findByRegionPopulation(getCountries(), region, population));
 
 let subregion = `Northern Europe`;
 let area = 100000;
-country = findBySubregionArea(getCountries(), subregion, area);
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?: ${name}`);
+writelnName(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?:`,
+  findBySubregionArea(getCountries(), subregion, area));
 
 subregion = `Polynesia`;
 area = 1000000;
-country = findBySubregionArea(getCountries(), subregion, area);
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?: ${name}`);
+writelnName(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?:`,
+  findBySubregionArea(getCountries(), subregion, area));
 
 function findByRegionPopulation(countries, region, population) {
   for (let i=0; i<countries.length; i++) {
@@ -41,6 +37,10 @@ function findBySubregionArea(countries, region, area) {
     }
   }
   return null;
+}
+
+function writelnName(title, country){
+  console.writeln(`${title} ${country !== null ? country.name : "No existe"}`);
 }
 
 function getCountries(){

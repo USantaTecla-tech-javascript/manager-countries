@@ -3,27 +3,23 @@ const { Console } = require("./console");
 const console = new Console();
 let region = `Asia`;
 let population = 1000000;
-let country = find(getCountries(), (countrie) => countrie.region === `Asia` && countrie.population > 1000000);
-let name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
+writelnName(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?:`,
+  find(getCountries(), (countrie) => countrie.region === region && countrie.population > population));
 
 region = `Americas`;
 population = 1000;
-country = find(getCountries(), (countrie) => countrie.region === `Americas` && countrie.population > 1000);
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
+writelnName(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?:`,
+  find(getCountries(), (countrie) => countrie.region === region && countrie.population > population));
 
 let subregion = `Northern Europe`;
 let area = 100000;
-country = find(getCountries(), (countrie) => countrie.subregion === `Northern Europe` && countrie.area > 100000);
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?: ${name}`);
+writelnName(`¿Cuál es el nombre del primer país de ${subregion} con población superior o igual a ${area}?:`,
+  find(getCountries(), (countrie) => countrie.subregion === subregion && countrie.area > area));
 
 subregion = `Polynesia`;
 area = 1000000;
-country = find(getCountries(), (countrie) => countrie.subregion === `Polynesia` && countrie.area > 1000000);
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?: ${name}`);
+writelnName(`¿Cuál es el nombre del primer país de ${subregion} con población superior o igual a ${area}?:`,
+  find(getCountries(), (countrie) => countrie.subregion === subregion && countrie.area > area));
 
 function find(countries, search) {
   for (let i = 0; i < countries.length; i++) {
@@ -32,6 +28,10 @@ function find(countries, search) {
     }
   }
   return null;
+}
+
+function writelnName(title, country){
+  console.writeln(`${title} ${country !== null ? country.name : "No existe"}`);
 }
 
 function getCountries() {

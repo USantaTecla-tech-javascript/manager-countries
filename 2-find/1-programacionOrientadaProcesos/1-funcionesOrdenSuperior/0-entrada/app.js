@@ -3,27 +3,23 @@ const { Console } = require("./console");
 const console = new Console();
 let region = `Asia`;
 let population = 1000000;
-let country = find(getCountries(), searchByAsia1000000Population);
-let name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
+writelnName(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?:`,
+  find(getCountries(), searchByAsia1000000Population));
 
 region = `Americas`;
 population = 1000;
-country = find(getCountries(), searchByAmericas1000Population);
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
+writelnName(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?:`,
+  find(getCountries(), searchByAmericas1000Population));
 
 let subregion = `Northern Europe`;
 let area = 100000;
-country = find(getCountries(), searchByNorthernEurope100000Area);
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?: ${name}`);
+writelnName(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?:`,
+  find(getCountries(), searchByNorthernEurope100000Area));
 
 subregion = `Polynesia`;
 area = 1000000;
-country = find(getCountries(), searchByPolynesia1000000Area);
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?: ${name}`);
+writelnName(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?:`,
+  find(getCountries(), searchByPolynesia1000000Area));
 
 function find(countries, search) {
   for (let i=0; i<countries.length; i++) {
@@ -48,6 +44,10 @@ function searchByNorthernEurope100000Area(countrie){
 
 function searchByPolynesia1000000Area(countrie){
   return countrie.subregion === `Polynesia` && countrie.area > 1000000;
+}
+
+function writelnName(title, country){
+  console.writeln(`${title} ${country !== null ? country.name : "No existe"}`);
 }
 
 function getCountries(){

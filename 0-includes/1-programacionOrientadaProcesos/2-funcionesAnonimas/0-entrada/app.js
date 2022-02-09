@@ -11,7 +11,8 @@ console.writeln(`¿Está el país de nombre ${name}?: ${includes(getCountries(),
   function (countrie) {
     return countrie.name === name;
   })}`);
-let capital = `Madrid`;
+
+  let capital = `Madrid`;
 console.writeln(`¿Está el país de capital ${capital}?: ${includes(getCountries(),
   function (countrie) {
     return countrie.capital === capital;

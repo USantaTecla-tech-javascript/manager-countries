@@ -3,27 +3,23 @@ const { Console } = require("./console");
 const console = new Console();
 let region = `Asia`;
 let population = 1000000;
-let country = find(getCountries(), generateSearchByRegionPopulation(region, population));
-let name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
+writelnName(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?:`,
+  find(getCountries(), generateSearchByRegionPopulation(region, population)));
 
 region = `Americas`;
 population = 1000;
-country = find(getCountries(), generateSearchByRegionPopulation(region, population));
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
+writelnName(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?:`,
+  find(getCountries(), generateSearchByRegionPopulation(region, population)));
 
 let subregion = `Northern Europe`;
 let area = 100000;
-country = find(getCountries(), generateSearchBySubregionArea(subregion, area));
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?: ${name}`);
+writelnName(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?:`,
+  find(getCountries(), generateSearchBySubregionArea(subregion, area)));
 
 subregion = `Polynesia`;
 area = 1000000;
-country = find(getCountries(), generateSearchBySubregionArea(subregion, area));
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?: ${name}`);
+writelnName(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?:`,
+  find(getCountries(), generateSearchBySubregionArea(subregion, area)));
 
 function find(countries, search) {
   for (let i=0; i<countries.length; i++) {

@@ -7,7 +7,8 @@ console.writeln(`¿Está el país de nombre ${name}?: ${includes(getCountries(),
 name = `Atlantida`;
 console.writeln(`¿Está el país de nombre ${name}?: ${includes(getCountries(),
   (countrie) => countrie.name === name)}`);
-let capital = `Madrid`;
+
+  let capital = `Madrid`;
 console.writeln(`¿Está el país de capital ${capital}?: ${includes(getCountries(),
   (countrie) => countrie.capital === capital)}`);
 capital = `Utopía`;

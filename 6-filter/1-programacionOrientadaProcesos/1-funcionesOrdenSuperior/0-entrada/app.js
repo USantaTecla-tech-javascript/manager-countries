@@ -2,48 +2,53 @@ const { Console } = require("./console");
 
 const console = new Console();
 let region = `Asia`;
-let population = 100000000;
-let answer = findNames(getCountries(), searchByRegionPopulation, region, population);
-console.writeln(`¿Cuál es el nombre de los paises de ${region} con población superior o igual a ${population}?:
-${answer !== `` ? answer : `No existen`}`);
+let population = 10000000;
+writelnNames(`¿Cuál es el nombre de los paises de ${region} con población superior o igual a ${population}?:`,
+  filter(getCountries(), searchByRegionPopulation, [region, population]));
 
 region = `Americas`;
 population = 1000000;
-answer = findNames(getCountries(), searchByRegionPopulation, region, population);
-console.writeln(`¿Cuál es el nombre de los paises de ${region} con población superior o igual a ${population}?:
-${answer !== `` ? answer : `No existen`}`);
+writelnNames(`¿Cuál es el nombre de los paises de ${region} con población superior o igual a ${population}?:`,
+  filter(getCountries(), searchByRegionPopulation, [region, population]));
 
 let subregion = `Northern Europe`;
 let area = 100000;
-answer = findNames(getCountries(), searchBySubregionArea, subregion, area);
-console.writeln(`¿Cuál es el nombre de los paises de ${subregion} con area superior o igual a ${area}?:
-${answer !== `` ? answer : `No existen`}`);
+writelnNames(`¿Cuál es el nombre de los paises de ${subregion} con area superior o igual a ${area}?:`,
+  filter(getCountries(), searchBySubregionArea, [subregion, area]));
 
 subregion = `Polynesia`;
 area = 1000000;
-answer = findNames(getCountries(), searchBySubregionArea, subregion, area);
-console.writeln(`¿Cuál es el nombre de los paises de ${subregion} con area superior o igual a ${area}?:
-${answer !== `` ? answer : `No existen`}`);
+writelnNames(`¿Cuál es el nombre de los paises de ${subregion} con area superior o igual a ${area}?:`,
+  filter(getCountries(), searchBySubregionArea, [subregion, area]));
 
-function findNames(countries, search, param1, param2){
-  let answer = ``;
+function filter(countries, search, args) {
+  let result = [];
   for (let i = 0; i < countries.length; i++) {
-    if (search(countries[i], param1, param2)) {
-      answer += `${answer === `` ? `` : `, `}${countries[i].name}`;
+    if (search(countries[i], args)) {
+      result.push(countries[i]);
     }
   }
-  return answer;
+  return result;
 }
 
-function searchByRegionPopulation(country, region, population){
+function searchByRegionPopulation(country, [region, population]) {
   return country.region === region && country.population >= population;
 }
 
-function searchBySubregionArea(country, subregion, area){
+function searchBySubregionArea(country, [subregion, area]) {
   return country.subregion === subregion && country.area >= area;
 }
 
-function getCountries(){
+function writelnNames(title, countries) {
+  let result = ``;
+  for (let i = 0; i < countries.length; i++) {
+    result += `${result === `` ? `` : `, `}${countries[i].name}`;
+  }
+  console.writeln(`${title}
+  ${result !== `` ? result : `No existen`}`);
+}
+
+function getCountries() {
   return [
     {
       "name": "Afghanistan",

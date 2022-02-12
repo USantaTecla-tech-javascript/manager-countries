@@ -1,6 +1,6 @@
 ## 2-find
 
-### 0-programacionEstrucutrada
+### v1
 
 ~~~
 ¿Cuál es el nombre del primer país de Asia con población superior o igual a 1000000?: Afghanistan
@@ -10,51 +10,8 @@ Finland
 ¿Cuál es el nombre del primer país de Polynesia con area superior o igual a 1000000?: No existe
 ~~~
 
-### 1-programacionOrientadaProcesos 
-
-#### 0-funciones
-
-~~~
-¿Cuál es el nombre del primer país de Asia con población superior o igual a 1000000?: Afghanistan
-¿Cuál es el nombre del primer país de Americas con población superior o igual a 1000?: Anguilla
-¿Cuál es el nombre del primer país de Northern Europe con area superior o igual a 100000?: 
-Finland
-¿Cuál es el nombre del primer país de Polynesia con area superior o igual a 1000000?: No existe
-~~~
-
-#### 1-funcionesOrdenSuperior
-
-##### 0-entrada
-
-~~~
-¿Cuál es el nombre del primer país de Asia con población superior o igual a 1000000?: Afghanistan
-¿Cuál es el nombre del primer país de Americas con población superior o igual a 1000?: Anguilla
-¿Cuál es el nombre del primer país de Northern Europe con area superior o igual a 100000?: 
-Finland
-¿Cuál es el nombre del primer país de Polynesia con area superior o igual a 1000000?: No existe
-~~~
-
-##### 1-salida
-
-~~~
-¿Cuál es el nombre del primer país de Asia con población superior o igual a 1000000?: Afghanistan
-¿Cuál es el nombre del primer país de Americas con población superior o igual a 1000?: Anguilla
-¿Cuál es el nombre del primer país de Northern Europe con area superior o igual a 100000?: 
-Finland
-¿Cuál es el nombre del primer país de Polynesia con area superior o igual a 1000000?: No existe
-~~~
 
 ### 2-funcionesAnonimas
-
-##### 0-entrada
-
-~~~
-¿Cuál es el nombre del primer país de Asia con población superior o igual a 1000000?: Afghanistan
-¿Cuál es el nombre del primer país de Americas con población superior o igual a 1000?: Anguilla
-¿Cuál es el nombre del primer país de Northern Europe con población superior o igual a 100000?: Finland
-¿Cuál es el nombre del primer país de Polynesia con población superior o igual a 1000000?: 
-No existe
-~~~
 
 ##### 1-salida
 
@@ -63,16 +20,6 @@ No existe
 ~~~
 
 #### 3-funcionesFlecha
-
-##### 0-entrada
-
-~~~
-¿Cuál es el nombre del primer país de Asia con población superior o igual a 1000000?: Afghanistan
-¿Cuál es el nombre del primer país de Americas con población superior o igual a 1000?: Anguilla
-¿Cuál es el nombre del primer país de Northern Europe con población superior o igual a 100000?: Finland
-¿Cuál es el nombre del primer país de Polynesia con población superior o igual a 1000000?: 
-No existe
-~~~
 
 ##### 1-salida
 
@@ -93,7 +40,7 @@ Finland
 
 ### 2-programacionOrientadaObjetos
 
-#### 3-arraysComoObjetos
+#### v2
 
 ~~~
 ¿Cuál es el nombre del primer país de Asia con población superior o igual a 100000000?: Bangladesh

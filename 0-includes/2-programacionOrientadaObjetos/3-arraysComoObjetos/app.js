@@ -2,14 +2,14 @@ const { Console } = require("./console");
 
 const console = new Console();
 let name = `Spain`;
-console.writeln(`¿Está el país de nombre ${name}?: ${getCountries().map((countrie) => countrie.name).indexOf(name)}`);
+console.writeln(`¿Está el país de nombre ${name}?: ${getCountries().map((countrie) => countrie.name).indexOf(name) !== -1}`);
 name = `Atlantida`;
-console.writeln(`¿Está el país de nombre ${name}?: ${getCountries().map((countrie) => countrie.name).indexOf(name)}`);
+console.writeln(`¿Está el país de nombre ${name}?: ${getCountries().map((countrie) => countrie.name).indexOf(name) !== -1}`);
 
 let capital = `Madrid`;
-console.writeln(`¿Está el país de capital ${capital}?: ${getCountries().map((countrie) => countrie.capital).indexOf(name)}`);
+console.writeln(`¿Está el país de capital ${capital}?: ${getCountries().map((countrie) => countrie.capital).indexOf(name) !== -1}`);
 capital = `Utopía`;
-console.writeln(`¿Está el país de capital ${capital}?: ${getCountries().map((countrie) => countrie.capital).indexOf(name)}`);
+console.writeln(`¿Está el país de capital ${capital}?: ${getCountries().map((countrie) => countrie.capital).indexOf(name) !== -1}`);
 
 function getCountries() {
   return [

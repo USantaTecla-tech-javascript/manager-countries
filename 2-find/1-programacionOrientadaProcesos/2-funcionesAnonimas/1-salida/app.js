@@ -21,8 +21,12 @@ area = 1000000;
 writelnName(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?:`,
   find(getCountries(), generateSearchBySubregionArea(subregion, area)));
 
+function writelnName(title, country) {
+  console.writeln(`${title} ${country !== null ? country.name : "No existe"}`);
+}
+
 function find(countries, search) {
-  for (let i=0; i<countries.length; i++) {
+  for (let i = 0; i < countries.length; i++) {
     if (search(countries[i])) {
       return countries[i];
     }
@@ -30,19 +34,19 @@ function find(countries, search) {
   return null;
 }
 
-function generateSearchByRegionPopulation(region, population){
-  return function (countrie){
+function generateSearchByRegionPopulation(region, population) {
+  return function (countrie) {
     return countrie.region === region && countrie.population >= population;
   };
 }
 
-function generateSearchBySubregionArea(subregion, area){
-  return function (countrie){
+function generateSearchBySubregionArea(subregion, area) {
+  return function (countrie) {
     return countrie.subregion === subregion && countrie.area >= area;
   };
 }
 
-function getCountries(){
+function getCountries() {
   return [
     {
       "name": "Afghanistan",

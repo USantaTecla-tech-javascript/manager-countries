@@ -30,7 +30,7 @@ function find([head, ...tail], search) {
     false
     :
     search(head) ?
-      head
+      true
       :
       find(tail, search);
 }

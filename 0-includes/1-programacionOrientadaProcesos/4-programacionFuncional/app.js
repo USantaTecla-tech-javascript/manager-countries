@@ -1,19 +1,19 @@
 const { Console } = require("./console");
 
 const console = new Console();
-let name = `Spain`;
-console.writeln(`¿Está el país de nombre ${name}?: ${includes(getCountries(),
-  (countrie) => countrie.name === name)}`);
-name = `Atlantida`;
-console.writeln(`¿Está el país de nombre ${name}?: ${includes(getCountries(),
-  (countrie) => countrie.name === name)}`);
+// let name = `Spain`;
+// console.writeln(`¿Está el país de nombre ${name}?: ${includes(getCountries(),
+//   (countrie) => countrie.name === name)}`);
+// name = `Atlantida`;
+// console.writeln(`¿Está el país de nombre ${name}?: ${includes(getCountries(),
+//   (countrie) => countrie.name === name)}`);
 
-  let capital = `Madrid`;
-console.writeln(`¿Está el país de capital ${capital}?: ${includes(getCountries(),
-  (countrie) => countrie.capital === capital)}`);
-capital = `Utopía`;
-console.writeln(`¿Está el país de capital ${capital}?: ${includes(getCountries(),
-  (countrie) => countrie.capital === capital)}`);
+//   let capital = `Madrid`;
+// console.writeln(`¿Está el país de capital ${capital}?: ${includes(getCountries(),
+//   (countrie) => countrie.capital === capital)}`);
+// capital = `Utopía`;
+// console.writeln(`¿Está el país de capital ${capital}?: ${includes(getCountries(),
+//   (countrie) => countrie.capital === capital)}`);
 
 function includes([head, ...tail], search) {
   return head === undefined ?
@@ -28,12 +28,11 @@ function includes([head, ...tail], search) {
         1 + includes(tail, search);
 }
 
-// let value = 3;
-// console.writeln(`Posición de ${value}: ${includes([1,2,3], (number) => number === value)}`);
-// console.writeln(`Posición de ${value}: ${includes([3,2,1], (number) => number === value)}`);
-// console.writeln(`Posición de ${value}: ${includes([3], (number) => number === value)}`);
-// console.writeln(`Posición de ${value}: ${includes([1,2,1], (number) => number === value)}`);
-// console.writeln(`Posición de ${value}: ${includes([], (number) => number === value)}`);
+let value = 3;
+console.writeln(`Posición de ${value}: ${includes([1, 2, 3], (number) => number === value)}`);
+console.writeln(`Posición de ${value}: ${includes([3, 2, 1], (number) => number === value)}`);
+console.writeln(`Posición de ${value}: ${includes([1, 2, 1], (number) => number === value)}`);
+console.writeln(`Posición de ${value}: ${includes([], (number) => number === value)}`);
 
 function getCountries() {
   return [

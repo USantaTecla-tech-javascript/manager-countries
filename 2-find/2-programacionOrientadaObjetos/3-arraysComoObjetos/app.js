@@ -2,13 +2,13 @@ const { Console } = require("./console");
 
 const console = new Console();
 let region = `Asia`;
-let population = 100000000;
+let population = 1000000;
 let country = getCountries().find((country) => country.region === region && country.population >= population);
 let name = country !== undefined ? country.name : "No existe";
 console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
 
 region = `Americas`;
-population = 1000000;
+population = 1000;
 country = getCountries().find((country) => country.region === region && country.population >= population);
 name = country !== undefined ? country.name : "No existe";
 console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);

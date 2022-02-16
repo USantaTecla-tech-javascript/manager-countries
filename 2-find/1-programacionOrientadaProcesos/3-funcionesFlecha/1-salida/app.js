@@ -19,7 +19,7 @@ writelnName(`¿Cuál es el nombre del primer país de ${subregion} con area supe
 subregion = `Polynesia`;
 area = 1000000;
 writelnName(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?:`,
-  find(getCountries(), generateSearchBySubregionArea(subregion, area)));
+  find(getCountries(), (countrie) => countrie.subregion === subregion && countrie.area >= area));
 
 function find(countries, search) {
   for (let i=0; i<countries.length; i++) {

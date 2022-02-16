@@ -19595,7 +19595,7 @@ let COUNTRIES = [
 ];
 
 let region = `Asia`;
-let population = 100000000;
+let population = 10000000;
 let answer = ``;
 for (let i = 0; i < COUNTRIES.length; i++) {
   if (COUNTRIES[i].region === region && COUNTRIES[i].population >= population) {

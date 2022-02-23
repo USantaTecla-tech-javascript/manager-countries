@@ -3,23 +3,23 @@ const { Console } = require("./console");
 const console = new Console();
 let region = `Asia`;
 let population = 1000000;
-let position = findIndex(getCountries(), searchByAsia1000000Population);
-console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
+let index = findIndex(getCountries(), searchByAsia1000000Population);
+console.writeln(`¿Cuál es la posición del primer país de ${region} con población superior o igual a ${population}?: ${index}`);
 
 region = `Americas`;
 population = 1000;
-position = findIndex(getCountries(), searchByAmericas1000Population);
-console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
+index = findIndex(getCountries(), searchByAmericas1000Population);
+console.writeln(`¿Cuál es la posición del primer país de ${region} con población superior o igual a ${population}?: ${index}`);
 
 let subregion = `Northern Europe`;
 let area = 100000;
-position = findIndex(getCountries(), searchByNorthernEurope100000Area);
-console.writeln(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?: ${name}`);
+index = findIndex(getCountries(), searchByNorthernEurope100000Area);
+console.writeln(`¿Cuál es la posición del primer país de ${subregion} con área superior o igual a ${area}?: ${index}`);
 
 subregion = `Polynesia`;
 area = 1000000;
-position = findIndex(getCountries(), searchByPolynesia1000000Area);
-console.writeln(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?: ${name}`);
+index = findIndex(getCountries(), searchByPolynesia1000000Area);
+console.writeln(`¿Cuál es la posición del primer país de ${subregion} con área superior o igual a ${area}?: ${index}`);
 
 function findIndex(countries, search) {
   for (let i=0; i<countries.length; i++) {
@@ -38,12 +38,12 @@ function searchByAmericas1000Population({region, population}){
   return region === `Americas` && population > 1000;
 }
 
-function searchByNorthernEurope100000Area({region, population}){
+function searchByNorthernEurope100000Area({subregion, area}){
   return subregion === `Northern Europe` && area > 100000;
 }
 
-function searchByPolynesia1000000Area({region, population}){
-  return ubregion === `Polynesia` && area > 1000000;
+function searchByPolynesia1000000Area(country){
+  return country.subregion === `Polynesia` && country.area > 1000000;
 }
 
 function getCountries(){

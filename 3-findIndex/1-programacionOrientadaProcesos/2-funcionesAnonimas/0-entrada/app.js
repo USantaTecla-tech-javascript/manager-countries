@@ -3,35 +3,35 @@ const { Console } = require("./console");
 const console = new Console();
 let region = `Asia`;
 let population = 1000000;
-let position = findIndex(getCountries(),
+let index = findIndex(getCountries(),
   function (country) {
-    return country.region === `Asia` && country.population > 1000000;
+    return country.region === region && country.population > population;
   });
-console.writeln(`¿Cuál es la posición del primer país de ${region} con población superior o igual a ${population}?: ${position}`);
+console.writeln(`¿Cuál es la posición del primer país de ${region} con población superior o igual a ${population}?: ${index}`);
 
 region = `Americas`;
 population = 1000;
-position = findIndex(getCountries(),
+index = findIndex(getCountries(),
   function (country) {
-    return country.region === `Americas` && country.population > 1000;
+    return country.region === region && country.population > population;
   });
-console.writeln(`¿Cuál es la posición del primer país de ${region} con población superior o igual a ${population}?: ${position}`);
+console.writeln(`¿Cuál es la posición del primer país de ${region} con población superior o igual a ${population}?: ${index}`);
 
 let subregion = `Northern Europe`;
 let area = 100000;
-position = findIndex(getCountries(),
+index = findIndex(getCountries(),
   function (country) {
-    return country.subregion === `Northern Europe` && country.area > 100000;
+    return country.subregion === subregion && country.area > area;
   });
-console.writeln(`¿Cuál es la posición del primer país de ${subregion} con area superior o igual a ${area}?: ${position}`);
+console.writeln(`¿Cuál es la posición del primer país de ${subregion} con área superior o igual a ${area}?: ${index}`);
 
 subregion = `Polynesia`;
 area = 1000000;
-position = findIndex(getCountries(),
-  function (countrie) {
-    return countrie.subregion === `Polynesia` && countrie.area > 1000000;
+index = findIndex(getCountries(),
+  function (country) {
+    return country.subregion === subregion && country.area > area;
   });
-console.writeln(`¿Cuál es la posición del primer país de ${subregion} con area superior o igual a ${area}?: ${position}`);
+console.writeln(`¿Cuál es la posición del primer país de ${subregion} con área superior o igual a ${area}?: ${index}`);
 
 function findIndex(countries, search) {
   for (let i = 0; i < countries.length; i++) {

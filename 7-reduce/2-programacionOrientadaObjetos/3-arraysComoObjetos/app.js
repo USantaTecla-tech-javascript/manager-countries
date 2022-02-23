@@ -1,45 +1,12 @@
 const { Console } = require("./console");
 
 const console = new Console();
-let region = `Asia`;
-let population = 100000000;
-let countries = getCountries().filter((country) => country.region === region && country.population >= population);
-let answer = ``;
-for(let i=0; i<countries.length; i++){
-  answer += `${answer === `` ? `` : `, `}${countries[i].name}`;
-}
-console.writeln(`¿Cuál es el nombre de los paises de ${region} con población superior o igual a ${population}?:
-${answer !== `` ? answer : `No existen`}`);
-
-region = `Americas`;
-population = 1000000;
-countries = getCountries().filter((country) => country.region === region && country.population >= population);
-answer = ``;
-for(let i=0; i<countries.length; i++){
-  answer += `${answer === `` ? `` : `, `}${countries[i].name}`;
-}
-console.writeln(`¿Cuál es el nombre de los paises de ${region} con población superior o igual a ${population}?:
-${answer !== `` ? answer : `No existen`}`);
-
-let subregion = `Northern Europe`;
-let area = 100000;
-countries = getCountries().filter((country) => country.subregion === subregion && country.area >= area);
-answer = ``;
-for(let i=0; i<countries.length; i++){
-  answer += `${answer === `` ? `` : `, `}${countries[i].name}`;
-}
-console.writeln(`¿Cuál es el nombre de los paises de ${region} con población superior o igual a ${population}?:
-${answer !== `` ? answer : `No existen`}`);
-
-subregion = `Polynesia`;
-area = 1000000;
-countries = getCountries().filter((country) => country.subregion === subregion && country.area >= area);
-answer = ``;
-for(let i=0; i<countries.length; i++){
-  answer += `${answer === `` ? `` : `, `}${countries[i].name}`;
-}
-console.writeln(`¿Cuál es el nombre de los paises de ${region} con población superior o igual a ${population}?:
-${answer !== `` ? answer : `No existen`}`);
+console.writeln(`¿Cuál es la población total?: ${
+  getCountries().reduce((previous, current) => previous + current.population, 0)}`);
+console.writeln(`¿Cuál es la lista de "alpha2code"?: ${
+  getCountries().reduce((previous, current) => [ ...previous, current.alpha2Code], [])}`);
+console.writeln(`¿Cuál es el área del mayor país?: ${
+  getCountries().reduce((previous, current) => previous > current.area? previous: current.area, 0)}`);
 
 function getCountries() {
   return [

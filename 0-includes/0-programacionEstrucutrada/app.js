@@ -19594,39 +19594,22 @@ let COUNTRIES = [
   }
 ];
 
-let name = `Spain`;
-let includesByName = false;
-for (let i=0; i<COUNTRIES.length && !includesByName; i++) {
-  if (COUNTRIES[i].name === name) {
-    includesByName = true;
+let country = COUNTRIES[212];
+let includes = false;
+for (let i=0; i<COUNTRIES.length && !includes; i++) {
+  if (COUNTRIES[i] === country) {
+    includes = true;
   }
 }
-console.writeln(`¿Está el país de nombre ${name}?: ${includesByName}`);
+console.writeln(`¿Está el país de nombre ${country.name}?: ${includes}`);
 
-name = `Atlantida`;
-includesByName = false;
-for (let i=0; i<COUNTRIES.length && !includesByName; i++) {
-  if (COUNTRIES[i].name === name) {
-    includesByName = true;
+country = {
+  name : `Atlantida`
+}
+includes = false;
+for (let i=0; i<COUNTRIES.length && !includes; i++) {
+  if (COUNTRIES[i] === country) {
+    includes = true;
   }
 }
-console.writeln(`¿Está el país de nombre ${name}?: ${includesByName}`);
-
-
-let capital = `Madrid`;
-let includesByCapital = false;
-for (let i=0; i<COUNTRIES.length && !includesByCapital; i++) {
-  if (COUNTRIES[i].capital === capital) {
-    includesByCapital = true;
-  }
-}
-console.writeln(`¿Está el país de capital ${capital}?: ${includesByCapital}`);
-
-capital = `Utopía`;
-includesByCapital = false;
-for (let i=0; i<COUNTRIES.length && !includesByCapital; i++) {
-  if (COUNTRIES[i].capital === capital) {
-    includesByCapital = true;
-  }
-}
-console.writeln(`¿Está el país de capital ${capital}?: ${includesByCapital}`);
+console.writeln(`¿Está el país de nombre ${country.name}?: ${includes}`);

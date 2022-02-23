@@ -3,34 +3,35 @@ const { Console } = require("./console");
 const console = new Console();
 let region = `Asia`;
 let population = 1000000;
-let country = find(getCountries(), (countrie) => countrie.region === `Asia` && countrie.population > 1000000);
+let country = find(getCountries(), (countrie) => countrie.region === region && countrie.population > population);
 let name = country !== null ? country.name : "No existe";
 console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
 
 region = `Americas`;
 population = 1000;
-country = find(getCountries(), (countrie) => countrie.region === `Americas` && countrie.population > 1000);
+country = find(getCountries(), (countrie) => countrie.region === region && countrie.population > population);
 name = country !== null ? country.name : "No existe";
 console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
 
 let subregion = `Northern Europe`;
 let area = 100000;
-country = find(getCountries(), (countrie) => countrie.subregion === `Northern Europe` && countrie.area > 100000);
+country = find(getCountries(), (countrie) => countrie.subregion === subregion && countrie.area > area);
 name = country !== null ? country.name : "No existe";
 console.writeln(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?: ${name}`);
 
 subregion = `Polynesia`;
 area = 1000000;
-country = find(getCountries(), (countrie) => countrie.subregion === `Polynesia` && countrie.area > 1000000);
+country = find(getCountries(), (countrie) => countrie.subregion === subregion && countrie.area > area);
 name = country !== null ? country.name : "No existe";
 console.writeln(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?: ${name}`);
 
+
 function find([head, ...tail], search) {
   return head === undefined ?
-    false
+    null
     :
     search(head) ?
-      true
+      head
       :
       find(tail, search);
 }

@@ -19596,42 +19596,42 @@ let COUNTRIES = [
 
 let region = `Asia`;
 let population = 1000000;
-let position = -1;
-for (let i=0; i<COUNTRIES.length && position === -1; i++) {
+let index = -1;
+for (let i=0; i<COUNTRIES.length && index === -1; i++) {
   if (COUNTRIES[i].region === region && COUNTRIES[i].population > population) {
-    position = i;
+    index = i;
   }
 }
-console.writeln(`¿Cuál es la posición del primer país de ${region} con población superior o igual a ${population}?: ${position}`);
+console.writeln(`¿Cuál es la posición del primer país de ${region} con población superior o igual a ${population}?: ${index}`);
 
 
 region = `Americas`;
 population = 1000;
-position = -1;
-for (let i=0; i<COUNTRIES.length && position === -1; i++) {
+index = -1;
+for (let i=0; i<COUNTRIES.length && index === -1; i++) {
   if (COUNTRIES[i].region === region && COUNTRIES[i].population > population) {
-    position = i;
+    index = i;
   }
 }
-console.writeln(`¿Cuál es la posición del primer país de ${region} con población superior o igual a ${population}?: ${position}`);
+console.writeln(`¿Cuál es la posición del primer país de ${region} con población superior o igual a ${population}?: ${index}`);
 
 
 let subregion = `Northern Europe`;
 let area = 100000;
-position = -1;
-for (let i=0; i<COUNTRIES.length && position === -1; i++) {
+index = -1;
+for (let i=0; i<COUNTRIES.length && index === -1; i++) {
   if (COUNTRIES[i].subregion === subregion && COUNTRIES[i].area > area) {
-    position = i;
+    index = i;
   }
 }
-console.writeln(`¿Cuál es la posición del primer país de ${subregion} con área superior o igual a ${area}?: ${position}`);
+console.writeln(`¿Cuál es la posición del primer país de ${subregion} con área superior o igual a ${area}?: ${index}`);
 
 subregion = `Polynesia`;
 area = 1000000;
-position = -1;
-for (let i=0; i<COUNTRIES.length && position === -1; i++) {
+index = -1;
+for (let i=0; i<COUNTRIES.length && index === -1; i++) {
   if (COUNTRIES[i].subregion === subregion && COUNTRIES[i].area > area) {
-    position = i;
+    index = i;
   }
 }
-console.writeln(`¿Cuál es la posición del primer país de ${subregion} con área superior o igual a ${area}?: ${position}`);
+console.writeln(`¿Cuál es la posición del primer país de ${subregion} con área superior o igual a ${area}?: ${index}`);

@@ -3,44 +3,40 @@ const { Console } = require("./console");
 const console = new Console();
 let region = `Asia`;
 let population = 1000000;
-let country = findIndexByRegionPopulation(getCountries(), region, population);
-let name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
+let index = findIndexByRegionPopulation(getCountries(), region, population);
+console.writeln(`¿Cuál es la posición del primer país de ${region} con población superior o igual a ${population}?: ${index}`);
 
 region = `Americas`;
 population = 1000;
-country = findIndexByRegionPopulation(getCountries(), region, population);
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${region} con población superior o igual a ${population}?: ${name}`);
+index = findIndexByRegionPopulation(getCountries(), region, population);
+console.writeln(`¿Cuál es la posición del primer país de ${region} con población superior o igual a ${population}?: ${index}`);
 
 let subregion = `Northern Europe`;
 let area = 100000;
-country = findIndexBySubregionArea(getCountries(), subregion, area);
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?: ${name}`);
+index = findIndexBySubregionArea(getCountries(), subregion, area);
+console.writeln(`¿Cuál es la posición del primer país de ${subregion} con área superior o igual a ${area}?: ${index}`);
 
 subregion = `Polynesia`;
 area = 1000000;
-country = findIndexBySubregionArea(getCountries(), subregion, area);
-name = country !== null ? country.name : "No existe";
-console.writeln(`¿Cuál es el nombre del primer país de ${subregion} con area superior o igual a ${area}?: ${name}`);
+index = findIndexBySubregionArea(getCountries(), subregion, area);
+console.writeln(`¿Cuál es la posición del primer país de ${subregion} con área superior o igual a ${area}?: ${index}`);
 
 function findIndexByRegionPopulation(countries, region, population) {
   for (let i=0; i<countries.length; i++) {
     if (countries[i].region === region && countries[i].population > population) {
-      return countries[i];
+      return i;
     }
   }
-  return null;
+  return -1;
 }
 
 function findIndexBySubregionArea(countries, region, area) {
   for (let i=0; i<countries.length; i++) {
     if (countries[i].subregion === subregion && countries[i].area > area) {
-      return countries[i];
+      return i;
     }
   }
-  return null;
+  return -1;
 }
 
 function getCountries(){
